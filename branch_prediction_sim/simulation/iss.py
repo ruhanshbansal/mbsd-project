@@ -22,9 +22,9 @@ References:
 """
 
 from collections import defaultdict
-from core.pipeline import PIPELINE_STAGES, MISPRED_PENALTY
-from core.energy import ENERGY, compute_flush_energy
-from bd.detector import BranchDetector
+from branch_prediction_sim.core.pipeline import PIPELINE_STAGES
+from branch_prediction_sim.core.energy import ENERGY, compute_flush_energy
+from branch_prediction_sim.bd.detector import BranchDetector
 
 
 class ISS:
@@ -167,9 +167,9 @@ class ISS:
         """Return a dict of all simulation metrics."""
         total_energy = (self.e_core + self.e_predictor + self.e_decomp +
                         self.e_bd + self.e_flush + self.e_buffer)
-        accuracy = self.correct / self.branches if self.branches > 0 else 1.0
-        mpki = (self.mispredictions / self.branches * 1000
-                if self.branches > 0 else 0)
+        accuracy = self.correct / self.branches if self.branches > 0 else None
+        misses_per_kilo_branches = (self.mispredictions / self.branches * 1000
+                if self.branches > 0 else None)
 
         return {
             'cycles':             self.cycles,
@@ -177,7 +177,7 @@ class ISS:
             'correct':            self.correct,
             'mispredictions':     self.mispredictions,
             'accuracy':           accuracy,
-            'mpki':               mpki,
+            'mispredictions_per_kilo_branches': misses_per_kilo_branches,
             'pred_accesses':      self.pred_accesses,
             'pred_wasted':        self.pred_wasted,
             'stall_cycles':       self.stall_cycles_total,

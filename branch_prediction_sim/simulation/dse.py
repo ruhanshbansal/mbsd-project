@@ -1,19 +1,18 @@
 """
 Design Space Exploration (DSE) — sweeps all predictor + BD configurations.
 
-Replicates the paper's methodology of exploring the design space by
+Explores configurations inspired by the paper's methodology of exploring the design space by
 varying:
   - Predictor type: Static, BHT, GAs, BTB1, BTB2, Perceptron
   - Branch Detector: on/off
   - Decompression buffer depth: 1, 2, 4, 8
 
 Results are normalized to the reference Lx configuration (static
-predictor, no BD) to produce the energy-delay scatter plots from
-the paper (Figures 2, 3, 4).
+predictor, no BD) to compare the project's modeled energy and cycle counts.
 """
 
-from simulation.iss import ISS
-from predictors import (StaticPredictor, BHTPredictor, GAsPredictor,
+from branch_prediction_sim.simulation.iss import ISS
+from branch_prediction_sim.predictors import (StaticPredictor, BHTPredictor, GAsPredictor,
                         BTBPredictor, PerceptronPredictor)
 
 
@@ -82,7 +81,7 @@ def run_dse(bundles, configs=None):
 def run_buffer_sweep(bundles):
     """
     Sweep decompression buffer depth for GAs + BD.
-    Replicates paper Figure 4.
+    Studies the buffer-depth tradeoff on the supplied synthetic trace.
 
     Returns:
         depth_results: dict of {depth: results_dict}

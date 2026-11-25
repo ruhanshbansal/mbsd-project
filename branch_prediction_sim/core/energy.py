@@ -1,9 +1,9 @@
 """
-Energy Model — CACTI-inspired, component-level energy accounting.
+Energy model with hand-selected, relative component costs.
 
 All values are in relative (normalized) units, where 1.0 = baseline core
-energy per cycle. This matches the paper's methodology where energy is
-reported as a ratio relative to the reference Lx configuration.
+energy per cycle. These illustrative constants are not CACTI outputs or
+measurements from synthesized or fabricated hardware.
 
 References:
   - Wilton & Jouppi, "CACTI: Enhanced Cache Access and Cycle Time Model,"

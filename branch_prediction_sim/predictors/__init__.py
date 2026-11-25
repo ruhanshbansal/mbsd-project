@@ -1,9 +1,9 @@
 # Pluggable branch predictor implementations
-from predictors.base import BasePredictor
-from predictors.bht import BHTPredictor
-from predictors.gas import GAsPredictor
-from predictors.btb import BTBPredictor
-from predictors.perceptron import PerceptronPredictor
+from branch_prediction_sim.predictors.base import BasePredictor
+from branch_prediction_sim.predictors.bht import BHTPredictor
+from branch_prediction_sim.predictors.gas import GAsPredictor
+from branch_prediction_sim.predictors.btb import BTBPredictor
+from branch_prediction_sim.predictors.perceptron import PerceptronPredictor
 
 # Static predictor (Lx default)
 class StaticPredictor(BasePredictor):

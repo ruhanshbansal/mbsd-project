@@ -33,13 +33,8 @@ MISPRED_PENALTY = 3     # cycles flushed on misprediction
 # =============================================================================
 # Pipeline Stall Model
 # =============================================================================
-# These model realistic pipeline stalls from data hazards and cache misses
-# that occur regardless of branch prediction configuration. Without these,
-# the relative improvement from branch prediction is unrealistically
-# amplified (28% vs paper's 7% average).
-#
-# VLIW compilers reduce data hazards through static scheduling, but cannot
-# fully eliminate memory latency or I-cache misses.
+# Fixed synthetic stall assumptions shared by every configuration.
+# They are not calibrated against real workloads or a cycle-accurate model.
 
 DCACHE_MISS_RATE    = 0.08    # probability per MEM operation
 DCACHE_MISS_PENALTY = 12      # cycles per D-cache miss

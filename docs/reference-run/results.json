@@ -1,0 +1,701 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "simulator_version": "0.1.0",
+    "python_version": "3.12.14",
+    "seed": 42,
+    "requested_bundles": 5000,
+    "workload": "synthetic patterned VLIW bundles",
+    "baseline": "1. Static (Lx Ref)",
+    "energy_units": "relative model units; not measured joules",
+    "pipeline_assumptions": {
+      "ISSUE_WIDTH": 4,
+      "PIPELINE_STAGES": 6,
+      "MISPRED_PENALTY": 3,
+      "DCACHE_MISS_RATE": 0.08,
+      "DCACHE_MISS_PENALTY": 12,
+      "DATA_HAZARD_RATE": 0.25,
+      "DATA_HAZARD_PENALTY": 2,
+      "ICACHE_MISS_RATE": 0.02,
+      "ICACHE_MISS_PENALTY": 10
+    },
+    "energy_costs": {
+      "core_per_cycle": 1.0,
+      "bht_read": 0.06,
+      "bht_write": 0.08,
+      "pht_read": 0.09,
+      "pht_write": 0.11,
+      "ghr_update": 0.01,
+      "btb_read": 0.12,
+      "btb_write": 0.15,
+      "bd_predecode": 0.02,
+      "decompressor_per_op": 0.008,
+      "buffer_sram_per_entry": 0.015,
+      "flush_per_stage": 0.2,
+      "perceptron_inference": 0.1,
+      "perceptron_update": 0.12,
+      "icache_miss": 0.1
+    }
+  },
+  "trace": {
+    "total_bundles": 5000,
+    "branch_bundles": 1304,
+    "non_branch_bundles": 3696,
+    "branch_density": 0.2608,
+    "pattern_counts": {
+      "biased_if": 169,
+      "loop": 325,
+      "alternating": 228,
+      "correlated": 534,
+      "random": 48
+    },
+    "total_stall_cycles": 9148,
+    "avg_stalls_per_bundle": 1.8296
+  },
+  "results": {
+    "1. Static (Lx Ref)": {
+      "cycles": 16689,
+      "branches": 1304,
+      "correct": 457,
+      "mispredictions": 847,
+      "accuracy": 0.3504601226993865,
+      "mispredictions_per_kilo_branches": 649.5398773006135,
+      "pred_accesses": 5000,
+      "pred_wasted": 3696,
+      "stall_cycles": 9148,
+      "eff_penalty": 3,
+      "buffer_refills": 0,
+      "bd_inactive_branches": 0,
+      "energy_total": 17537.963999999927,
+      "energy_core": 14148.0,
+      "energy_predictor": 0.0,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 0.0,
+      "energy_flush": 3049.1999999999534,
+      "energy_buffer": 212.21999999997658,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 106,
+          "total": 169
+        },
+        "loop": {
+          "correct": 10,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 115,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 207,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "2. BHT (no BD)": {
+      "cycles": 15036,
+      "branches": 1304,
+      "correct": 1008,
+      "mispredictions": 296,
+      "accuracy": 0.7730061349693251,
+      "mispredictions_per_kilo_branches": 226.99386503067484,
+      "pred_accesses": 5000,
+      "pred_wasted": 3696,
+      "stall_cycles": 9148,
+      "eff_penalty": 3,
+      "buffer_refills": 0,
+      "bd_inactive_branches": 0,
+      "energy_total": 15958.683999999988,
+      "energy_core": 14148.0,
+      "energy_predictor": 404.32000000001,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 0.0,
+      "energy_flush": 1065.6000000000035,
+      "energy_buffer": 212.21999999997658,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 143,
+          "total": 169
+        },
+        "loop": {
+          "correct": 305,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 115,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 426,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "3. GAs (no BD)": {
+      "cycles": 14865,
+      "branches": 1304,
+      "correct": 1065,
+      "mispredictions": 239,
+      "accuracy": 0.816717791411043,
+      "mispredictions_per_kilo_branches": 183.28220858895705,
+      "pred_accesses": 5000,
+      "pred_wasted": 3696,
+      "stall_cycles": 9148,
+      "eff_penalty": 3,
+      "buffer_refills": 0,
+      "bd_inactive_branches": 0,
+      "energy_total": 16005.644000000044,
+      "energy_core": 14148.0,
+      "energy_predictor": 656.4800000000669,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 0.0,
+      "energy_flush": 860.4000000000035,
+      "energy_buffer": 212.21999999997658,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 127,
+          "total": 169
+        },
+        "loop": {
+          "correct": 271,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 211,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 437,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "4. BTB1 (no BD)": {
+      "cycles": 15285,
+      "branches": 1304,
+      "correct": 925,
+      "mispredictions": 379,
+      "accuracy": 0.7093558282208589,
+      "mispredictions_per_kilo_branches": 290.6441717791411,
+      "pred_accesses": 5000,
+      "pred_wasted": 3696,
+      "stall_cycles": 9148,
+      "eff_penalty": 3,
+      "buffer_refills": 0,
+      "bd_inactive_branches": 0,
+      "energy_total": 16648.76399999997,
+      "energy_core": 14148.0,
+      "energy_predictor": 795.6000000000013,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 0.0,
+      "energy_flush": 1364.399999999996,
+      "energy_buffer": 212.21999999997658,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 136,
+          "total": 169
+        },
+        "loop": {
+          "correct": 304,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 6,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 457,
+          "total": 534
+        },
+        "random": {
+          "correct": 22,
+          "total": 48
+        }
+      }
+    },
+    "5. BTB2 (no BD)": {
+      "cycles": 15357,
+      "branches": 1304,
+      "correct": 901,
+      "mispredictions": 403,
+      "accuracy": 0.6909509202453987,
+      "mispredictions_per_kilo_branches": 309.0490797546012,
+      "pred_accesses": 5000,
+      "pred_wasted": 3696,
+      "stall_cycles": 9148,
+      "eff_penalty": 3,
+      "buffer_refills": 0,
+      "bd_inactive_branches": 0,
+      "energy_total": 16735.16399999997,
+      "energy_core": 14148.0,
+      "energy_predictor": 795.6000000000013,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 0.0,
+      "energy_flush": 1450.7999999999938,
+      "energy_buffer": 212.21999999997658,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 143,
+          "total": 169
+        },
+        "loop": {
+          "correct": 304,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 6,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 428,
+          "total": 534
+        },
+        "random": {
+          "correct": 20,
+          "total": 48
+        }
+      }
+    },
+    "6. GAs + BD (d=1)": {
+      "cycles": 14865,
+      "branches": 1304,
+      "correct": 1065,
+      "mispredictions": 239,
+      "accuracy": 0.816717791411043,
+      "mispredictions_per_kilo_branches": 183.28220858895705,
+      "pred_accesses": 1543,
+      "pred_wasted": 239,
+      "stall_cycles": 9148,
+      "eff_penalty": 3,
+      "buffer_refills": 239,
+      "bd_inactive_branches": 0,
+      "energy_total": 15755.16399999998,
+      "energy_core": 14148.0,
+      "energy_predictor": 310.78000000000566,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 95.2199999999982,
+      "energy_flush": 860.4000000000035,
+      "energy_buffer": 212.21999999997658,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 127,
+          "total": 169
+        },
+        "loop": {
+          "correct": 271,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 211,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 437,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "7. GAs + BD (d=4)": {
+      "cycles": 14387,
+      "branches": 1304,
+      "correct": 1065,
+      "mispredictions": 239,
+      "accuracy": 0.816717791411043,
+      "mispredictions_per_kilo_branches": 183.28220858895705,
+      "pred_accesses": 1857,
+      "pred_wasted": 553,
+      "stall_cycles": 9148,
+      "eff_penalty": 1,
+      "buffer_refills": 239,
+      "bd_inactive_branches": 258,
+      "energy_total": 15838.183999999914,
+      "energy_core": 14148.0,
+      "energy_predictor": 342.1800000000102,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 83.78000000000047,
+      "energy_flush": 286.7999999999987,
+      "energy_buffer": 848.8799999999063,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 127,
+          "total": 169
+        },
+        "loop": {
+          "correct": 271,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 211,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 437,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "8. GAs + BD (d=8)": {
+      "cycles": 14387,
+      "branches": 1304,
+      "correct": 1065,
+      "mispredictions": 239,
+      "accuracy": 0.816717791411043,
+      "mispredictions_per_kilo_branches": 183.28220858895705,
+      "pred_accesses": 2110,
+      "pred_wasted": 806,
+      "stall_cycles": 9148,
+      "eff_penalty": 1,
+      "buffer_refills": 239,
+      "bd_inactive_branches": 392,
+      "energy_total": 16704.623999999825,
+      "energy_core": 14148.0,
+      "energy_predictor": 367.48000000001423,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 76.04000000000201,
+      "energy_flush": 286.7999999999987,
+      "energy_buffer": 1697.7599999998126,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 127,
+          "total": 169
+        },
+        "loop": {
+          "correct": 271,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 211,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 437,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "9. Perceptron + BD (d=4)": {
+      "cycles": 14368,
+      "branches": 1304,
+      "correct": 1084,
+      "mispredictions": 220,
+      "accuracy": 0.8312883435582822,
+      "mispredictions_per_kilo_branches": 168.7116564417178,
+      "pred_accesses": 1744,
+      "pred_wasted": 440,
+      "stall_cycles": 9148,
+      "eff_penalty": 1,
+      "buffer_refills": 220,
+      "bd_inactive_branches": 270,
+      "energy_total": 15806.10399999991,
+      "energy_core": 14148.0,
+      "energy_predictor": 330.8800000000083,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 85.80000000000007,
+      "energy_flush": 263.9999999999989,
+      "energy_buffer": 848.8799999999063,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 126,
+          "total": 169
+        },
+        "loop": {
+          "correct": 306,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 197,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 429,
+          "total": 534
+        },
+        "random": {
+          "correct": 26,
+          "total": 48
+        }
+      }
+    }
+  },
+  "metrics": [
+    {
+      "name": "1. Static (Lx Ref)",
+      "norm_energy": 1.0,
+      "norm_delay": 1.0,
+      "cycle_reduction_pct": 0.0,
+      "speedup_factor": 1.0,
+      "speedup_pct": 0.0,
+      "energy_save_pct": 0.0
+    },
+    {
+      "name": "2. BHT (no BD)",
+      "norm_energy": 0.9099507787791133,
+      "norm_delay": 0.9009527233507101,
+      "cycle_reduction_pct": 9.904727664928991,
+      "speedup_factor": 1.1099361532322425,
+      "speedup_pct": 10.993615323224248,
+      "energy_save_pct": 9.004922122088665
+    },
+    {
+      "name": "3. GAs (no BD)",
+      "norm_energy": 0.9126283985986121,
+      "norm_delay": 0.8907064533525076,
+      "cycle_reduction_pct": 10.929354664749235,
+      "speedup_factor": 1.1227043390514633,
+      "speedup_pct": 12.270433905146326,
+      "energy_save_pct": 8.737160140138789
+    },
+    {
+      "name": "4. BTB1 (no BD)",
+      "norm_energy": 0.9492985616802521,
+      "norm_delay": 0.915872730541075,
+      "cycle_reduction_pct": 8.412726945892501,
+      "speedup_factor": 1.091854759568204,
+      "speedup_pct": 9.1854759568204,
+      "energy_save_pct": 5.070143831974794
+    },
+    {
+      "name": "5. BTB2 (no BD)",
+      "norm_energy": 0.954225017225491,
+      "norm_delay": 0.9201869494876865,
+      "cycle_reduction_pct": 7.981305051231347,
+      "speedup_factor": 1.0867356905645633,
+      "speedup_pct": 8.673569056456332,
+      "energy_save_pct": 4.577498277450898
+    },
+    {
+      "name": "6. GAs + BD (d=1)",
+      "norm_energy": 0.898346239050328,
+      "norm_delay": 0.8907064533525076,
+      "cycle_reduction_pct": 10.929354664749235,
+      "speedup_factor": 1.1227043390514633,
+      "speedup_pct": 12.270433905146326,
+      "energy_save_pct": 10.165376094967204
+    },
+    {
+      "name": "7. GAs + BD (d=4)",
+      "norm_energy": 0.9030799698300201,
+      "norm_delay": 0.8620648331236144,
+      "cycle_reduction_pct": 13.793516687638563,
+      "speedup_factor": 1.1600055605755195,
+      "speedup_pct": 16.00055605755195,
+      "energy_save_pct": 9.692003016997985
+    },
+    {
+      "name": "8. GAs + BD (d=8)",
+      "norm_energy": 0.9524836520362281,
+      "norm_delay": 0.8620648331236144,
+      "cycle_reduction_pct": 13.793516687638563,
+      "speedup_factor": 1.1600055605755195,
+      "speedup_pct": 16.00055605755195,
+      "energy_save_pct": 4.751634796377191
+    },
+    {
+      "name": "9. Perceptron + BD (d=4)",
+      "norm_energy": 0.9012507951322044,
+      "norm_delay": 0.8609263586793696,
+      "cycle_reduction_pct": 13.907364132063037,
+      "speedup_factor": 1.1615395322939868,
+      "speedup_pct": 16.153953229398677,
+      "energy_save_pct": 9.874920486779558
+    }
+  ],
+  "buffer_sweep": {
+    "1": {
+      "cycles": 14865,
+      "branches": 1304,
+      "correct": 1065,
+      "mispredictions": 239,
+      "accuracy": 0.816717791411043,
+      "mispredictions_per_kilo_branches": 183.28220858895705,
+      "pred_accesses": 1543,
+      "pred_wasted": 239,
+      "stall_cycles": 9148,
+      "eff_penalty": 3,
+      "buffer_refills": 239,
+      "bd_inactive_branches": 0,
+      "energy_total": 15755.16399999998,
+      "energy_core": 14148.0,
+      "energy_predictor": 310.78000000000566,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 95.2199999999982,
+      "energy_flush": 860.4000000000035,
+      "energy_buffer": 212.21999999997658,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 127,
+          "total": 169
+        },
+        "loop": {
+          "correct": 271,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 211,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 437,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "2": {
+      "cycles": 14626,
+      "branches": 1304,
+      "correct": 1065,
+      "mispredictions": 239,
+      "accuracy": 0.816717791411043,
+      "mispredictions_per_kilo_branches": 183.28220858895705,
+      "pred_accesses": 1651,
+      "pred_wasted": 347,
+      "stall_cycles": 9148,
+      "eff_penalty": 2,
+      "buffer_refills": 239,
+      "bd_inactive_branches": 131,
+      "energy_total": 15686.603999999954,
+      "energy_core": 14148.0,
+      "energy_predictor": 321.58000000000715,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 90.43999999999915,
+      "energy_flush": 573.5999999999974,
+      "energy_buffer": 424.43999999995316,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 127,
+          "total": 169
+        },
+        "loop": {
+          "correct": 271,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 211,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 437,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "4": {
+      "cycles": 14387,
+      "branches": 1304,
+      "correct": 1065,
+      "mispredictions": 239,
+      "accuracy": 0.816717791411043,
+      "mispredictions_per_kilo_branches": 183.28220858895705,
+      "pred_accesses": 1857,
+      "pred_wasted": 553,
+      "stall_cycles": 9148,
+      "eff_penalty": 1,
+      "buffer_refills": 239,
+      "bd_inactive_branches": 258,
+      "energy_total": 15838.183999999914,
+      "energy_core": 14148.0,
+      "energy_predictor": 342.1800000000102,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 83.78000000000047,
+      "energy_flush": 286.7999999999987,
+      "energy_buffer": 848.8799999999063,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 127,
+          "total": 169
+        },
+        "loop": {
+          "correct": 271,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 211,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 437,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    },
+    "8": {
+      "cycles": 14387,
+      "branches": 1304,
+      "correct": 1065,
+      "mispredictions": 239,
+      "accuracy": 0.816717791411043,
+      "mispredictions_per_kilo_branches": 183.28220858895705,
+      "pred_accesses": 2110,
+      "pred_wasted": 806,
+      "stall_cycles": 9148,
+      "eff_penalty": 1,
+      "buffer_refills": 239,
+      "bd_inactive_branches": 392,
+      "energy_total": 16704.623999999825,
+      "energy_core": 14148.0,
+      "energy_predictor": 367.48000000001423,
+      "energy_decomp": 128.54399999999723,
+      "energy_bd": 76.04000000000201,
+      "energy_flush": 286.7999999999987,
+      "energy_buffer": 1697.7599999998126,
+      "pattern_stats": {
+        "biased_if": {
+          "correct": 127,
+          "total": 169
+        },
+        "loop": {
+          "correct": 271,
+          "total": 325
+        },
+        "alternating": {
+          "correct": 211,
+          "total": 228
+        },
+        "correlated": {
+          "correct": 437,
+          "total": 534
+        },
+        "random": {
+          "correct": 19,
+          "total": 48
+        }
+      }
+    }
+  }
+}

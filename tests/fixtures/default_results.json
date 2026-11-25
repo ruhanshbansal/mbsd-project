@@ -1,0 +1,65 @@
+{
+  "1. Static (Lx Ref)": {
+    "cycles": 16689,
+    "accuracy": 0.3504601226993865,
+    "energy_total": 17537.963999999927,
+    "branches": 1304,
+    "mispredictions": 847
+  },
+  "2. BHT (no BD)": {
+    "cycles": 15036,
+    "accuracy": 0.7730061349693251,
+    "energy_total": 15958.683999999988,
+    "branches": 1304,
+    "mispredictions": 296
+  },
+  "3. GAs (no BD)": {
+    "cycles": 14865,
+    "accuracy": 0.816717791411043,
+    "energy_total": 16005.644000000044,
+    "branches": 1304,
+    "mispredictions": 239
+  },
+  "4. BTB1 (no BD)": {
+    "cycles": 15285,
+    "accuracy": 0.7093558282208589,
+    "energy_total": 16648.76399999997,
+    "branches": 1304,
+    "mispredictions": 379
+  },
+  "5. BTB2 (no BD)": {
+    "cycles": 15357,
+    "accuracy": 0.6909509202453987,
+    "energy_total": 16735.16399999997,
+    "branches": 1304,
+    "mispredictions": 403
+  },
+  "6. GAs + BD (d=1)": {
+    "cycles": 14865,
+    "accuracy": 0.816717791411043,
+    "energy_total": 15755.16399999998,
+    "branches": 1304,
+    "mispredictions": 239
+  },
+  "7. GAs + BD (d=4)": {
+    "cycles": 14387,
+    "accuracy": 0.816717791411043,
+    "energy_total": 15838.183999999914,
+    "branches": 1304,
+    "mispredictions": 239
+  },
+  "8. GAs + BD (d=8)": {
+    "cycles": 14387,
+    "accuracy": 0.816717791411043,
+    "energy_total": 16704.623999999825,
+    "branches": 1304,
+    "mispredictions": 239
+  },
+  "9. Perceptron + BD (d=4)": {
+    "cycles": 14368,
+    "accuracy": 0.8312883435582822,
+    "energy_total": 15806.10399999991,
+    "branches": 1304,
+    "mispredictions": 220
+  }
+}

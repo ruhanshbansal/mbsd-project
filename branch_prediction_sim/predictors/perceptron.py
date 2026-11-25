@@ -1,7 +1,7 @@
 """
 Perceptron Branch Predictor — ML Extension (beyond paper).
 
-A genuine machine-learning-based branch predictor using a table of
+An online-learning branch predictor using a table of
 perceptron weight vectors. Each perceptron computes a weighted sum
 of the global branch history to produce a prediction.
 
@@ -16,17 +16,16 @@ Training rule (online learning):
 The threshold theta = floor(1.93 * history_length + 14) determines
 when to train even on correct predictions (confidence-based training).
 
-This predictor captures complex, long-range correlations that 2-bit
-counters cannot represent — making it a meaningful ML contribution
-beyond the paper's BHT/GAs methods.
+This project adds the established perceptron method to the comparison.
+Its effectiveness depends on the workload and predictor configuration.
 
 References:
   - Jimenez & Lin, "Dynamic Branch Prediction with Perceptrons,"
     HPCA, 2001.
 """
 
-from predictors.base import BasePredictor
-from core.energy import ENERGY
+from branch_prediction_sim.predictors.base import BasePredictor
+from branch_prediction_sim.core.energy import ENERGY
 
 
 class PerceptronPredictor(BasePredictor):

@@ -21,8 +21,8 @@ References:
     [Paper ref 4]
 """
 
-from predictors.base import BasePredictor
-from core.energy import ENERGY
+from branch_prediction_sim.predictors.base import BasePredictor
+from branch_prediction_sim.core.energy import ENERGY
 
 
 class BHTPredictor(BasePredictor):

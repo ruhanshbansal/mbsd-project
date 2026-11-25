@@ -33,8 +33,8 @@ References:
     Processors," GLSVLSI 2003, Section 4.
 """
 
-from core.energy import ENERGY
-from core.pipeline import ISSUE_WIDTH, MISPRED_PENALTY
+from branch_prediction_sim.core.energy import ENERGY
+from branch_prediction_sim.core.pipeline import ISSUE_WIDTH, MISPRED_PENALTY
 
 
 class BranchDetector:

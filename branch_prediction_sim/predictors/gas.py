@@ -20,8 +20,8 @@ References:
     history information," IEEE CDT, 2002.  [Paper ref 6]
 """
 
-from predictors.base import BasePredictor
-from core.energy import ENERGY
+from branch_prediction_sim.predictors.base import BasePredictor
+from branch_prediction_sim.core.energy import ENERGY
 
 
 class GAsPredictor(BasePredictor):
